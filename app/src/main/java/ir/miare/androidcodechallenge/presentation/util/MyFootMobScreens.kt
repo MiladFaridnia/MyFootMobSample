@@ -11,6 +11,6 @@ sealed class MyFootMobScreens {
     object LeagueInfo : MyFootMobScreens()
 
     @Serializable
-    data class FollowedPlayers(val categoryId: Int?) : MyFootMobScreens()
+    object FollowedPlayers : MyFootMobScreens()
 
 }

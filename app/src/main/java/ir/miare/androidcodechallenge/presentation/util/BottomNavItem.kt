@@ -1,9 +1,9 @@
 package ir.miare.androidcodechallenge.presentation.util
 
-import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.graphics.painter.Painter
 
 data class BottomNavItem(
     val title: String,
     val route: MyFootMobScreens,
-    val icon: ImageVector
+    val icon: Painter
 )

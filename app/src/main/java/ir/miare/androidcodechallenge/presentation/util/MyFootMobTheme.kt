@@ -15,9 +15,38 @@ import androidx.compose.ui.unit.sp
 import ir.miare.androidcodechallenge.R
 
 private val LightColors = lightColorScheme(
+    primary = Color(0xFF0ABAB5),          // vibrant teal cyan
+    onPrimary = Color.White,
+    tertiary = Color(0xFFADEED9), // soft mint background for primary
+    onPrimaryContainer = Color(0xFF00332F),
+
+    primaryContainer = Color(0xFF56DFCF),        // aqua accent
+    onSecondary = Color(0xFF003732),
+    secondaryContainer = Color(0xFFD6FFF8), // very pale aqua
+    onSecondaryContainer = Color(0xFF003230),
+
+    background = Color(0xFFF6FFFD),       // subtle mint-tinted white
+    onBackground = Color(0xFF1A1C1C),
+
+    surface = Color(0xFFFAFFFD),           // clean white surface with mint hue
+    onSurface = Color(0xFF202121),
+
+    error = Color(0xFFB3261E),
+    onError = Color.White,
+
+    surfaceVariant = Color(0xFFE0F5F1),   // pastel aqua-gray
+    onSurfaceVariant = Color(0xFF3E4E4B),
+
+    surfaceTint = Color(0xFF0ABAB5),
+
+    secondary = Color(0xFFFFEDF3),         // soft blush pink for warm contrast
+    onTertiary = Color(0xFF3E1E25),
+)
+
+/*private val LightColors = lightColorScheme(
     primary = Color(0xFF3E5F44),          // main brand green
     onPrimary = Color.White,
-    primaryContainer = Color(0xFF93DA97), // lighter green container
+    primaryContainer = Color(0xFF5E936C), // lighter green container
     onPrimaryContainer = Color(0xFF0E2A1A),
 
     secondary = Color(0xFF5E936C),        // softer accent green
@@ -41,7 +70,7 @@ private val LightColors = lightColorScheme(
 
     tertiary = Color(0xFF93DA97),         // matching tertiary with primaryContainer
     onTertiary = Color(0xFF11391F),
-)
+)*/
 
 private val DarkColors = darkColorScheme(
     primary = Color(0xFF9EC8B9),          // mint green for visibility in dark
@@ -68,7 +97,8 @@ private val DarkColors = darkColorScheme(
 
     surfaceTint = Color(0xFF5C8374),
 
-    tertiary = Color(0xFF5C8374),
+    tertiary = Color(0xFF4A9782),
+//    tertiary = Color(0xFF113F67),
     onTertiary = Color(0xFF0E231E),
 )
 
