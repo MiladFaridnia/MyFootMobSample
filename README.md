@@ -24,7 +24,7 @@ Built with Jetpack Compose and following Clean Architecture principles for scala
 
 | Main Player List | Sorting | Followed Players |
 | ---------------- | ------- | ---------------- |
-| ![Main Screen](C:\Users\Asus\AndroidStudioProjects\MyFootMobSample\Screenshot_light_theme.png) | ![Sorting Screen](C:\Users\Asus\AndroidStudioProjects\MyFootMobSample\Screenshot_dark_theme.png) | ![Followed Screen](C:\Users\Asus\AndroidStudioProjects\MyFootMobSample\Screenshot_sort.png) |
+| ![Main Screen](https://github.com/MiladFaridnia/MyFootMobSample/blob/main/Screenshot_dark_theme.png) | ![Sorting Screen](https://github.com/MiladFaridnia/MyFootMobSample/blob/main/Screenshot_light_theme.png) | ![Followed Screen](https://github.com/MiladFaridnia/MyFootMobSample/blob/main/Screenshot_sort.png) |
 
 ## Architecture
 
