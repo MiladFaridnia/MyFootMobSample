@@ -1,13 +1,12 @@
 package ir.miare.androidcodechallenge.presentation.league_data_list
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -21,37 +20,26 @@ import ir.miare.androidcodechallenge.presentation.util.MyFootMobTheme
 @Composable
 fun PlayerItem(
     player: Player,
-    onFollowClick: (Player) -> Unit
+    onFollowClick: (Player) -> Unit,
+    onClick: () -> Unit
 ) {
-    Card(
+    Row(
         modifier = Modifier
-            .fillMaxWidth(),
-        elevation = CardDefaults.cardElevation(4.dp)
+            .fillMaxWidth()
+            .clickable { onClick() }
+            .padding(8.dp),
+        horizontalArrangement = Arrangement.SpaceBetween,
+        verticalAlignment = Alignment.CenterVertically
     ) {
-        Row(
-            modifier = Modifier
-                .padding(8.dp)
-                .fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceBetween,
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            Column {
-                Text(
-                    text = player.name,
-                    style = MaterialTheme.typography.titleMedium
-                )
-                Text(
-                    text = player.team.name,
-                    style = MaterialTheme.typography.bodyMedium
-                )
-                Text(
-                    text = "Rank: ${player.team.rank}",
-                    style = MaterialTheme.typography.bodySmall
-                )
-            }
-            Button(onClick = { onFollowClick(player) }) {
-                Text(if (player.isFollowed) "Unfollow" else "Follow")
-            }
+        Column {
+            Text(player.name, style = MaterialTheme.typography.bodyLarge)
+            Text(
+                text = "Team: ${player.team.name} • Goals: ${player.totalGoal}",
+                style = MaterialTheme.typography.bodySmall,
+            )
+        }
+        Button(onClick = { onFollowClick(player) }) {
+            Text(if (player.isFollowed) "Unfollow" else "Follow")
         }
     }
 }
@@ -61,8 +49,10 @@ fun PlayerItem(
 fun PreviewPlayerItem() {
     MyFootMobTheme {
         PlayerItem(
-            player = Player.sampleData
-        ) { }
+            player = Player.sampleData,
+            onFollowClick = {},
+            onClick = {}
+        )
     }
 }
 

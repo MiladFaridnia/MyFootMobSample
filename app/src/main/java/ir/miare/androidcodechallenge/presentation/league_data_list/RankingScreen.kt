@@ -9,9 +9,11 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.Button
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.Text
+import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -22,21 +24,30 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.paging.LoadState
 import androidx.paging.compose.collectAsLazyPagingItems
+import ir.miare.androidcodechallenge.data.model.Player
 import ir.miare.androidcodechallenge.presentation.league_data_list.LeagueSection
 import ir.miare.androidcodechallenge.presentation.league_data_list.RankingSort
 import ir.miare.androidcodechallenge.presentation.league_data_list.RankingViewModel
+import ir.miare.androidcodechallenge.presentation.player_detail.PlayerDetailsContent
 import ir.miare.androidcodechallenge.presentation.util.LightAndDarkPreview
 import ir.miare.androidcodechallenge.presentation.util.MyFootMobTheme
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun RankingScreen(viewModel: RankingViewModel = hiltViewModel()) {
     val leagues = viewModel.leaguesPagingFlow.collectAsLazyPagingItems()
     val currentSort by viewModel.sort.collectAsState()
 
-    LaunchedEffect(leagues.itemCount) {
-        println("Leagues item count: ${leagues.itemCount}")
-        for (i in 0 until leagues.itemCount) {
-            println("LeagueData[$i]: ${leagues[i]}")
+    var selectedPlayer by remember { mutableStateOf<Player?>(null) }
+    val sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true)
+    var showSheet by remember { mutableStateOf(false) }
+
+    if (showSheet && selectedPlayer != null) {
+        ModalBottomSheet(
+            onDismissRequest = { showSheet = false },
+            sheetState = sheetState
+        ) {
+            PlayerDetailsContent(player = selectedPlayer!!)
         }
     }
 
@@ -77,9 +88,16 @@ fun RankingScreen(viewModel: RankingViewModel = hiltViewModel()) {
         ) {
             items(leagues.itemCount) { index ->
                 leagues[index]?.let { leagueData ->
-                    LeagueSection(leagueData) { player ->
-                        viewModel.toggleFollow(player, leagueData.league)
-                    }
+                    LeagueSection(
+                        leagueData,
+                        onFollowClick = { player ->
+                            viewModel.toggleFollow(player, leagueData.league)
+                        },
+                        onPlayerClick = { player ->
+                            selectedPlayer = player
+                            showSheet = true
+                        }
+                    )
                 }
             }
 
