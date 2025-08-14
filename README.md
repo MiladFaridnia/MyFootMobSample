@@ -1,69 +1,69 @@
-# Android Assignment
-######  We have an interview, yay
+# Football Player Browser
 
-### TL;DR
+An Android application that displays football player data for all leagues and players provided.  
+Built with Jetpack Compose and following Clean Architecture principles for scalability and maintainability.
 
-Clone this project, open it in Android Studio and build it.
+## Features
 
-#### What is this?
+- List of Players by League  
+  Browse players from all available leagues with smooth pagination.
+- Sorting  
+  Sort players by desired criteria (e.g., name, goals) across the entire dataset.
+- Follow / Unfollow Players  
+  Mark your favorite players and manage them easily.
+- Persisted Follow State  
+  Followed players are stored locally so your preferences remain after closing the app.
+- Followed Players Screen  
+  Dedicated screen to quickly access all your followed players.
+- Light / Dark Mode  
+- Tests
+    - Unit tests for core logic.
+    - UI tests for critical user flows.
 
-This app shows a list of the top three scoring football players in different leagues.
+## Screenshots
 
-#### What do I do with this?
+| Main Player List | Sorting | Followed Players |
+| ---------------- | ------- | ---------------- |
+| ![Main Screen](C:\Users\Asus\AndroidStudioProjects\MyFootMobSample\Screenshot_light_theme.png) | ![Sorting Screen](C:\Users\Asus\AndroidStudioProjects\MyFootMobSample\Screenshot_dark_theme.png) | ![Followed Screen](C:\Users\Asus\AndroidStudioProjects\MyFootMobSample\Screenshot_sort.png) |
 
-- Clone it
-- Open it in Android Studio
-- Let it download its dependencies
-- Make the project once (since we have some intermediate classes which need to be generated)
-- Chill :)
+## Architecture
 
-#### 📝 Task Description
-In this task, you are expected to design and implement an Android application that displays football player data for all leagues and players provided.
+The app follows Clean Architecture with three main layers:
 
-Core Requirements:
-1. Display a list of players
-- Player data must be displayed using pagination.
-- Sorting should be applied across the entire dataset, not just the current page.
-- The method of implementing pagination and sorting — and how they interact — is completely up to you.
+1. **Presentation Layer**
+    - Jetpack Compose UI
+    - ViewModels (MVVM pattern)
+    - State management with Kotlin Flow / StateFlow
 
-2. Follow / Unfollow players
-- The user must be able to follow or unfollow any player.
-- Followed players should be persisted locally, so the follow status remains after closing and reopening the app.
-- How you model and store this state is entirely your decision.
+2. **Domain Layer**
+    - Use cases encapsulating business logic
+    - Domain models independent of frameworks
 
-3. Followed players screen
-- The user must be able to view their followed players in a dedicated screen.
-- How this screen is accessed is also up to you (e.g. a button on the main screen, or a tab in bottom navigation).
+3. **Data Layer**
+    - Repository pattern
+    - Local data storage (Room or DataStore)
+    - Remote data source (Retrofit)
 
+## Tech Stack
 
+- **Language**: Kotlin
+- **UI**: Jetpack Compose
+- **Architecture**: Clean Architecture + MVVM
+- **Dependency Injection**: Hilt
+- **Networking**: Retrofit + OkHttp
+- **Pagination**: Paging 3
+- **Local Storage**: Room or DataStore
+- **Coroutines**: Kotlin Coroutines + Flow
+- **Testing**: JUnit, MockK, Espresso / Compose UI Tests
 
-#### 🔧 Technical Requirements
-The following are mandatory and will be strictly evaluated:
+## Getting Started
 
-Use Jetpack Compose for UI.
+### Prerequisites
+- Android Studio Giraffe or newer
+- JDK 17+
+- Internet connection for fetching player data
 
-Follow Clean Architecture principles with clear separation of layers (Presentation / Domain / Data).
-
-Implement Unit Tests for key components.
-
-Implement UI Tests for important user flows.
-
-Additional technical decisions — including state management, navigation, persistence, dependency injection, design system, etc. — are entirely up to you.
-
-Final UI/UX design is also open to your judgment and will be evaluated based on your analysis and decisions.
-
-
-
-#### 📌 Evaluation Criteria
-This task is not just about the final result — we're primarily evaluating your approach and thought process:
-
-- Accurate understanding and coverage of the requirements
-- Scalable and flexible architectural design
-- Clean and maintainable code structure
-- Proper state and data flow management
-- Code readability and modularity
-- Smooth, intuitive, and consistent user experience
-- Effective persistence and handling of follow state
-- Meaningful test coverage (both Unit and UI)
-- Quality of documentation and clarity of technical decisions
-
+### Installation
+1. Clone the repository:
+   ```bash
+   https://github.com/MiladFaridnia/MyFootMobSample.git
