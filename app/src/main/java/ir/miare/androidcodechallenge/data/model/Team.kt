@@ -6,4 +6,11 @@ import java.io.Serializable
 data class Team(
     @JsonProperty("name") val name: String,
     @JsonProperty("rank") val rank: Int
-) : Serializable
+) : Serializable {
+    companion object {
+        val sampleData = Team(
+            name = "Sample Team Name",
+            rank = 1
+        )
+    }
+}

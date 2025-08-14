@@ -11,4 +11,15 @@ data class Player(
     @JsonProperty("team") val team: Team,
     @JsonProperty("total_goal") val totalGoal: Int,
     @JsonIgnore var isFollowed: Boolean = false
-) : Serializable
+) : Serializable {
+    companion object {
+        val sampleData = Player(
+            name = "Sample Player Name",
+            team = Team.sampleData,
+            isFollowed = true,
+            totalGoal = 34
+        )
+
+    }
+
+}

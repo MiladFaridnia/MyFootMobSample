@@ -15,6 +15,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import ir.miare.androidcodechallenge.data.model.Player
+import ir.miare.androidcodechallenge.presentation.util.LightAndDarkPreview
+import ir.miare.androidcodechallenge.presentation.util.MyFootMobTheme
 
 @Composable
 fun PlayerItem(
@@ -53,3 +55,14 @@ fun PlayerItem(
         }
     }
 }
+
+@LightAndDarkPreview
+@Composable
+fun PreviewPlayerItem() {
+    MyFootMobTheme {
+        PlayerItem(
+            player = Player.sampleData
+        ) { }
+    }
+}
+

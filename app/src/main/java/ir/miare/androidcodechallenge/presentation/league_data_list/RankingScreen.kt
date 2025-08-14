@@ -25,6 +25,8 @@ import androidx.paging.compose.collectAsLazyPagingItems
 import ir.miare.androidcodechallenge.presentation.league_data_list.LeagueSection
 import ir.miare.androidcodechallenge.presentation.league_data_list.RankingSort
 import ir.miare.androidcodechallenge.presentation.league_data_list.RankingViewModel
+import ir.miare.androidcodechallenge.presentation.util.LightAndDarkPreview
+import ir.miare.androidcodechallenge.presentation.util.MyFootMobTheme
 
 @Composable
 fun RankingScreen(viewModel: RankingViewModel = hiltViewModel()) {
@@ -103,5 +105,13 @@ fun RankingScreen(viewModel: RankingViewModel = hiltViewModel()) {
                 }
             }
         }
+    }
+}
+
+@LightAndDarkPreview
+@Composable
+fun PreviewRankingScreen() {
+    MyFootMobTheme {
+        RankingScreen()
     }
 }
