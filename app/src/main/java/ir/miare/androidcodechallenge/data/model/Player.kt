@@ -19,7 +19,12 @@ data class Player(
             isFollowed = true,
             totalGoal = 34
         )
-
+        val sampleListData = listOf(
+            sampleData.copy(name = "Player 1"),
+            sampleData.copy(name = "Player 2"),
+            sampleData.copy(name = "Player 3"),
+            sampleData.copy(name = "Player 4"),
+        )
     }
 
 }
