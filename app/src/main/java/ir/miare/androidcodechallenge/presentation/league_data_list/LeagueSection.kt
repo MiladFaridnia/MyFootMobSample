@@ -19,9 +19,7 @@ import ir.miare.androidcodechallenge.presentation.util.MyFootMobTheme
 
 @Composable
 fun LeagueSection(
-    leagueData: LeagueData,
-    onFollowClick: (Player) -> Unit,
-    onPlayerClick: (Player) -> Unit
+    leagueData: LeagueData, onFollowClick: (Player) -> Unit, onPlayerClick: (Player) -> Unit
 ) {
     Column {
         Text(
@@ -30,15 +28,13 @@ fun LeagueSection(
                 .padding(horizontal = 16.dp, vertical = 4.dp),
             text = "${leagueData.league.name} (${leagueData.league.country})",
             style = MaterialTheme.typography.titleLarge,
-            textAlign = TextAlign.Center
+            textAlign = TextAlign.Center,
+            color = MaterialTheme.colorScheme.onSurface
         )
         Spacer(modifier = Modifier.height(4.dp))
         leagueData.players.forEach { player ->
             PlayerItem(
-                player = player,
-                onFollowClick = onFollowClick,
-                onClick = { onPlayerClick(player) }
-            )
+                player = player, onFollowClick = onFollowClick, onClick = { onPlayerClick(player) })
             Spacer(modifier = Modifier.height(4.dp))
         }
     }
@@ -50,16 +46,12 @@ fun PreviewLeagueSection() {
     MyFootMobTheme {
         LeagueSection(
             leagueData = LeagueData(
-                league = League.sampleData,
-                players = listOf(
+                league = League.sampleData, players = listOf(
                     Player.sampleData,
                     Player.sampleData.copy(name = "Player 2"),
                     Player.sampleData.copy(name = "Player 3"),
                     Player.sampleData.copy(name = "Player 4"),
                 )
-            ),
-            onFollowClick = {},
-            onPlayerClick = {}
-        )
+            ), onFollowClick = {}, onPlayerClick = {})
     }
 }

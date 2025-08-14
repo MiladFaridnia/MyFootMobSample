@@ -1,3 +1,4 @@
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -10,6 +11,7 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.Text
 import androidx.compose.material3.rememberModalBottomSheetState
@@ -59,6 +61,7 @@ private fun RankingList(
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
+            .background(MaterialTheme.colorScheme.surface)
             .padding(8.dp),
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
@@ -102,7 +105,8 @@ private fun RankingList(
 
 @Composable
 private fun RankingSort(
-    uiState: RankingUiState, onEvent: (RankingEvent) -> Unit
+    uiState: RankingUiState,
+    onEvent: (RankingEvent) -> Unit
 ) {
     var expanded by remember { mutableStateOf(false) }
     Box(
@@ -112,6 +116,8 @@ private fun RankingSort(
     ) {
         Text(
             text = "Sort by: ${uiState.sort.displayName()}",
+            style = MaterialTheme.typography.titleMedium,
+            color = MaterialTheme.colorScheme.onSurface,
             modifier = Modifier
                 .clickable { expanded = true }
                 .padding(8.dp))
