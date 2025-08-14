@@ -10,7 +10,6 @@ import ir.miare.androidcodechallenge.data.db.FollowedPlayerEntity
 import ir.miare.androidcodechallenge.data.model.League
 import ir.miare.androidcodechallenge.data.model.LeagueData
 import ir.miare.androidcodechallenge.data.model.Player
-import ir.miare.androidcodechallenge.data.model.Team
 import ir.miare.androidcodechallenge.domain.use_case.FollowPlayerUseCase
 import ir.miare.androidcodechallenge.domain.use_case.GetFollowedPlayersUseCase
 import ir.miare.androidcodechallenge.domain.use_case.GetLeagueDataUseCase
@@ -23,7 +22,6 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.flatMapLatest
-import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -73,18 +71,4 @@ class RankingViewModel @Inject constructor(
         }
     }
 
-    val followedPlayers: Flow<List<Player>> = getFollowedPlayersUseCase()
-        .map { entities ->
-            entities.map { entity ->
-                Player(
-                    name = entity.playerName,
-                    totalGoal = entity.totalGoal,
-                    team = Team(
-                        name = entity.teamName,
-                        rank = entity.teamRank
-                    ),
-                    isFollowed = true // always true since these are followed players
-                )
-            }
-        }
 }
