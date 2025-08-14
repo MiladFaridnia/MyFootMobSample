@@ -15,6 +15,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import ir.miare.androidcodechallenge.data.model.Player
+import ir.miare.androidcodechallenge.presentation.util.LightAndDarkPreview
+import ir.miare.androidcodechallenge.presentation.util.MyFootMobTheme
 
 @Composable
 fun PlayerItem(player: Player, onUnfollow: () -> Unit) {
@@ -34,5 +36,15 @@ fun PlayerItem(player: Player, onUnfollow: () -> Unit) {
         IconButton(onClick = onUnfollow) {
             Icon(Icons.Default.Delete, contentDescription = "Unfollow")
         }
+    }
+}
+
+@LightAndDarkPreview
+@Composable
+fun PreviewPlayerItem() {
+    MyFootMobTheme {
+        PlayerItem(
+            Player.sampleData
+        ) {}
     }
 }

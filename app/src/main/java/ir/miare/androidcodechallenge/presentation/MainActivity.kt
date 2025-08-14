@@ -11,6 +11,7 @@ import androidx.navigation.compose.rememberNavController
 import dagger.hilt.android.AndroidEntryPoint
 import ir.miare.androidcodechallenge.presentation.util.BottomNavigationBar
 import ir.miare.androidcodechallenge.presentation.util.MyFootMobScreens
+import ir.miare.androidcodechallenge.presentation.util.MyFootMobTheme
 import ir.miare.androidcodechallenge.presentation.util.mainGraph
 
 @AndroidEntryPoint
