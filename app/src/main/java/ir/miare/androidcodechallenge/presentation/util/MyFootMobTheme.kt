@@ -17,12 +17,12 @@ import ir.miare.androidcodechallenge.R
 private val LightColors = lightColorScheme(
     primary = Color(0xFF0ABAB5),          // vibrant teal cyan
     onPrimary = Color.White,
-    tertiary = Color(0xFFADEED9), // soft mint background for primary
+    tertiary = Color(0xFFD6FFF8), // soft mint background for primary
     onPrimaryContainer = Color(0xFF00332F),
 
     primaryContainer = Color(0xFF56DFCF),        // aqua accent
     onSecondary = Color(0xFF003732),
-    secondaryContainer = Color(0xFFD6FFF8), // very pale aqua
+    secondaryContainer = Color(0xFFADEED9), // very pale aqua
     onSecondaryContainer = Color(0xFF003230),
 
     background = Color(0xFFF6FFFD),       // subtle mint-tinted white
@@ -31,7 +31,7 @@ private val LightColors = lightColorScheme(
     surface = Color(0xFFFAFFFD),           // clean white surface with mint hue
     onSurface = Color(0xFF202121),
 
-    error = Color(0xFFB3261E),
+    error = Color(0xFFE57373),
     onError = Color.White,
 
     surfaceVariant = Color(0xFFE0F5F1),   // pastel aqua-gray
@@ -73,33 +73,34 @@ private val LightColors = lightColorScheme(
 )*/
 
 private val DarkColors = darkColorScheme(
-    primary = Color(0xFF9EC8B9),          // mint green for visibility in dark
-    onPrimary = Color(0xFF0A1E18),
-    primaryContainer = Color(0xFF1B4242), // deep teal
-    onPrimaryContainer = Color(0xFFBFE6D6),
+    primary = Color(0xFF78B9B5),          // soft teal for dark mode
+    onPrimary = Color(0xFF003739),
+    primaryContainer = Color(0xFF0F828C), // richer teal for containers
+    onPrimaryContainer = Color(0xFFB5EFEA),
 
-    secondary = Color(0xFF5C8374),        // soft teal-green
-    onSecondary = Color(0xFF0D1B15),
-    secondaryContainer = Color(0xFF092635),
-    onSecondaryContainer = Color(0xFFB6D7CA),
+    secondary = Color(0xFF320A6B),        // lighter blue for visibility
+    onSecondary = Color(0xFF002F57),
+    secondaryContainer = Color(0xFF065084), // deep blue container
+    onSecondaryContainer = Color(0xFFAED7FF),
 
-    background = Color(0xFF0B1A1A),       // almost black teal
-    onBackground = Color(0xFFE0F2EA),
+    background = Color(0xFF101414),       // deep cool black
+    onBackground = Color(0xFFE0E3E3),
 
-    surface = Color(0xFF102C2C),          // slightly lighter than background
-    onSurface = Color(0xFFDDEAE3),
+    surface = Color(0xFF172020),          // slightly lighter than background
+    onSurface = Color(0xFFCBD4D4),
 
-    error = Color(0xFFE57373),
-    onError = Color(0xFF370000),
+    error = Color(0xFFFFB4A9),
+    onError = Color(0xFF680003),
 
-    surfaceVariant = Color(0xFF294444),   // muted deep teal
-    onSurfaceVariant = Color(0xFFC8E0D9),
+    surfaceVariant = Color(0xFF3F4F4F),   // muted teal-gray
+    onSurfaceVariant = Color(0xFFBFC9C9),
 
-    surfaceTint = Color(0xFF5C8374),
+    surfaceTint = Color(0xFF78B9B5),
 
-    tertiary = Color(0xFF4A9782),
-//    tertiary = Color(0xFF113F67),
-    onTertiary = Color(0xFF0E231E),
+    tertiary = Color(0xFF065084),         // light lavender
+    onTertiary = Color(0xFF320A6B),
+    tertiaryContainer = Color(0xFF320A6B), // deep purple container
+    onTertiaryContainer = Color(0xFFE8DDFF)
 )
 
 private val Typography = Typography(
