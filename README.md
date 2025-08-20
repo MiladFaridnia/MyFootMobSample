@@ -7,14 +7,14 @@ Built with Jetpack Compose and following Clean Architecture principles for scala
 
 - List of Players by League  
   Browse players from all available leagues with smooth pagination.
+- Followed Players Screen  
+  Dedicated screen to quickly access all your followed players.
 - Sorting  
   Sort players by desired criteria (e.g., name, goals) across the entire dataset.
 - Follow / Unfollow Players  
   Mark your favorite players and manage them easily.
 - Persisted Follow State  
   Followed players are stored locally so your preferences remain after closing the app.
-- Followed Players Screen  
-  Dedicated screen to quickly access all your followed players.
 - Light / Dark Mode  
 - Tests
     - Unit tests for core logic.
@@ -22,9 +22,9 @@ Built with Jetpack Compose and following Clean Architecture principles for scala
 
 ## Screenshots
 
-| Main Player List | Sorting | Followed Players |
+| Dark Theme | Light Theme | Sorting |
 | ---------------- | ------- | ---------------- |
-| ![Main Screen](https://github.com/MiladFaridnia/MyFootMobSample/blob/main/Screenshot_dark_theme.png) | ![Sorting Screen](https://github.com/MiladFaridnia/MyFootMobSample/blob/main/Screenshot_light_theme.png) | ![Followed Screen](https://github.com/MiladFaridnia/MyFootMobSample/blob/main/Screenshot_sort.png) |
+| ![Dark Theme](https://github.com/MiladFaridnia/MyFootMobSample/blob/main/Screenshot_dark_theme.png) | ![Light Theme](https://github.com/MiladFaridnia/MyFootMobSample/blob/main/Screenshot_light_theme.png) | ![Sorting](https://github.com/MiladFaridnia/MyFootMobSample/blob/main/Screenshot_sort.png) |
 
 ## Architecture
 
@@ -41,7 +41,7 @@ The app follows Clean Architecture with three main layers:
 
 3. **Data Layer**
     - Repository pattern
-    - Local data storage (Room or DataStore)
+    - Local data storage (Room)
     - Remote data source (Retrofit)
 
 ## Tech Stack
@@ -52,9 +52,9 @@ The app follows Clean Architecture with three main layers:
 - **Dependency Injection**: Hilt
 - **Networking**: Retrofit + OkHttp
 - **Pagination**: Paging 3
-- **Local Storage**: Room or DataStore
+- **Local Storage**: Room
 - **Coroutines**: Kotlin Coroutines + Flow
-- **Testing**: JUnit, MockK, Espresso / Compose UI Tests
+- **Testing**: JUnit, MockK, Espresso
 
 ## Getting Started
 
